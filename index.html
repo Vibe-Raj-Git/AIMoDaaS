@@ -80,13 +80,35 @@ h2{font-family:'Fraunces',serif;font-size:clamp(32px,3.5vw,52px);font-weight:700
 .rc-body{font-size:14px;color:var(--dim);line-height:1.65;}
 .rc-body strong{color:var(--teal);font-weight:600;}
 
+/* WINDOW CARD — feedback change: standalone full-width "In 2026" card */
+.window-card{background:var(--ink);border-radius:4px;padding:40px 48px;margin-top:32px;position:relative;overflow:hidden;}
+.window-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(0,109,119,0.25) 0%,transparent 60%);pointer-events:none;}
+.window-card-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 2fr;gap:40px;align-items:center;}
+.window-subtitle{font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal2);margin-bottom:12px;}
+.window-title{font-family:'Fraunces',serif;font-size:clamp(22px,2.5vw,32px);font-weight:700;color:var(--white);line-height:1.2;}
+.window-body{font-size:14px;color:rgba(255,255,255,0.85);line-height:1.7;}
+.window-body strong{color:var(--teal2);font-weight:600;}
+
 /* DARK PROPOSITION SECTION */
 .prop-section{background:var(--ink);padding:96px 0;position:relative;z-index:1;}
 .prop-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(0,109,119,0.2) 0%,transparent 85%);pointer-events:none;}
 .prop-inner{max-width:1280px;margin:0 auto;padding:0 56px;position:relative;z-index:1;}
 .prop-label{font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal2);margin-bottom:16px;}
 .prop-h2{font-family:'Fraunces',serif;font-size:clamp(32px,3.5vw,52px);font-weight:700;color:var(--white);line-height:1.1;letter-spacing:-0.02em;margin-bottom:20px;}
-.prop-intro{font-size:17px;color:rgba(255,255,255,0.65);max-width:640px;margin-bottom:64px;line-height:1.7;}
+.prop-intro{font-size:17px;color:rgba(255,255,255,0.65);max-width:640px;margin-bottom:48px;line-height:1.7;}
+
+/* TMF STANDARD TWO-BOX — feedback change: replaces the single prop-intro claim */
+.standard-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:48px;}
+.standard-card{border-radius:4px;padding:28px 32px;}
+.standard-card.tmf{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);}
+.standard-card.modaas{background:rgba(0,109,119,0.12);border:1px solid rgba(0,136,145,0.3);}
+.std-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:10px;}
+.standard-card.tmf .std-eyebrow{color:rgba(255,255,255,0.5);}
+.standard-card.modaas .std-eyebrow{color:var(--teal2);}
+.std-title{font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:var(--white);margin-bottom:10px;line-height:1.3;}
+.std-body{font-size:13.5px;color:rgba(255,255,255,0.75);line-height:1.65;}
+.std-body strong{color:var(--teal2);font-weight:500;}
+
 .deliver-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:64px;}
 .deliver-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:28px;transition:border-color 0.2s,background 0.2s;}
 .deliver-card:hover{border-color:rgba(0,136,145,0.4);background:rgba(0,109,119,0.08);}
@@ -184,6 +206,8 @@ footer strong{color:rgba(255,255,255,0.75);}
   .value-grid{grid-template-columns:1fr;}.flow-inner,.prop-inner{padding:0 24px;}
   .champion-inner{flex-direction:column;gap:20px;}.champion-strip{padding:40px 24px;}
   .closing-section{padding:64px 24px;}
+  .standard-grid{grid-template-columns:1fr;}
+  .window-card-inner{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -200,37 +224,43 @@ footer strong{color:rgba(255,255,255,0.75);}
     <li><a href="#proposition">Proposition</a></li>
     <li><a href="#architecture">Architecture</a></li>
     <li><a href="#value">Client Value</a></li>
+    <li><a href="#pathtomarket">Path to Market</a></li>
   </ul>
-  <div class="nav-cta">TMF Catalyst 2026 · C26.0.952</div>
+  <div class="nav-cta">TMF Catalyst 2026</div>
 </nav>
 
 <div class="cover" id="top">
   <div class="cover-left">
     <div class="cover-eyebrow">Management Briefing · Cognizant</div>
-    <h1>AI Inference & Governance<br>as a <em>Managed</em><br>Telco Service</h1>
-    <p class="cover-desc">AI MoDaaS delivers sovereign AI connectivity as an operator-sold product which is intent-driven, governance-assured, fully autonomous. Built for TMF Catalyst 2026 with five champion telcos across three continents.</p>
+    <h1>AI Inference &amp; Governance<br>as a <em>Managed</em><br>Telco Service</h1>
+    <!-- FEEDBACK: operator-sold → operator-ready -->
+    <p class="cover-desc">AI MoDaaS delivers sovereign AI connectivity as an operator-ready product which is intent-driven, governance-assured, fully autonomous. Built for TMF Catalyst 2026 with five champion telcos across three continents.</p>
     <div class="cover-meta">
-      <div class="meta-row"><div class="meta-dot"></div><strong>Builder:</strong>&nbsp;Cognizant Technology Solutions</div>
-      <div class="meta-row"><div class="meta-dot"></div><strong>Architect:</strong>&nbsp;Rajarshi Pathak, ISG CMT Practice</div>
-      <div class="meta-row"><div class="meta-dot"></div><strong>Catalyst ID:</strong>&nbsp;C26.0.952 · TMF Catalyst 2026</div>
+      <div class="meta-row"><div class="meta-dot"></div><strong>AI Builder:</strong>&nbsp;Cognizant Technology Solutions</div>
+      <!-- FEEDBACK: Add Consulting row -->
+      <div class="meta-row"><div class="meta-dot"></div><strong>Consulting:</strong>&nbsp;Prabu Devarajan &amp; Rishi Shrivastava, Cognizant Consulting CMT</div>
+      <div class="meta-row"><div class="meta-dot"></div><strong>Architecture & Implementation:</strong>&nbsp;Rajarshi Pathak, Cognizant ISG CMT Practice</div>
     </div>
   </div>
   <div class="cover-right">
     <div class="stat-stack">
       <div class="big-stat">
         <div class="stat-num">$105<span>B</span></div>
-        <div class="stat-label">AI Inference PaaS market by 2030 - growing at 41% CAGR. Telecom segment registers the highest growth rate.</div>
+        <!-- FEEDBACK: Add Deutsche Telekom / STC context -->
+        <div class="stat-label">AI Inference PaaS market by 2030 - growing at 41% CAGR. Major telcos including Deutsche Telekom (€1B, 10,000 GPUs) and STC (1GW AI data centres) are already deploying the GPU supply layer this market requires.</div>
         <div class="stat-source">MarketsandMarkets, Oct 2025</div>
       </div>
       <div class="big-stat">
         <div class="stat-num">$15<span>B</span></div>
-        <div class="stat-label">Sovereign AI infrastructure market in 2025 - projected $177B by 2035 at 28% CAGR. Telecom operators are the fastest-growing adopter segment.</div>
+        <!-- FEEDBACK: Add 35 governments / B2B demand context -->
+        <div class="stat-label">Sovereign AI infrastructure market in 2025 - projected $177B by 2035 at 28% CAGR. Over 35 governments committed $62B in sovereign AI programmes in 2025, creating enterprise B2B demand that hyperscalers cannot serve.</div>
         <div class="stat-source">Precedence Research, Apr 2026</div>
       </div>
       <div class="big-stat">
         <div class="stat-num">2026</div>
         <div class="stat-label">IDC: "In 2026, the buzzword is inferencing - and telcos have a genuine structural advantage to capitalise on it."</div>
-        <div class="stat-source">IDC Telecom Leadership Report, Mar 2026</div>
+        <!-- FEEDBACK: IDC Telecom Leadership Report → IDC Telco Forum Barcelona -->
+        <div class="stat-source">IDC Telco Forum Barcelona, Mar 2026</div>
       </div>
     </div>
   </div>
@@ -242,31 +272,35 @@ footer strong{color:rgba(255,255,255,0.75);}
 <section class="section fi">
   <div class="section-label">Section 01 · 5 Minutes · Context &amp; Background</div>
   <h2>The Market Shift<br>Happening Now</h2>
-  <p class="section-intro">AI inference demand is structural, not cyclical. The question for telcos is no longer whether to participate - it is whether to be a passive pipe or an intelligent service layer.</p>
+  <!-- FEEDBACK: Update intro to be consistent with cover -->
+  <p class="section-intro">AI inference demand is structural, not cyclical. Major telcos are already investing in the GPU supply layer. The question is whether operators become an intelligent service layer or remain a commodity pipe.</p>
   <div class="market-grid fi">
     <div class="market-card">
       <div class="mc-num">41%</div>
       <div class="mc-label">CAGR - AI Inference PaaS Market</div>
-      <div class="mc-desc">From $18.84B in 2025 to $105.22B by 2030. IT &amp; telecom registers the highest growth rate of any sector - driven by 5G deployment, real-time analytics, and AI-powered network management.</div>
+      <div class="mc-desc">From $18.84B in 2025 to $105.22B by 2030. Major telcos including Deutsche Telekom and STC are already deploying the GPU supply layer this market requires..</div>
       <div class="mc-src">MarketsandMarkets, Oct 2025</div>
     </div>
     <div class="market-card">
       <div class="mc-num">28%</div>
       <div class="mc-label">CAGR - Sovereign AI Infrastructure</div>
-      <div class="mc-desc">$15B in 2025 growing to $177B by 2035. Over 35 national governments committed $62B in sovereign AI programs in 2025 alone. Telecom operators are the fastest-growing adopter segment.</div>
+      <div class="mc-desc">$15B in 2025 growing to $177B by 2035. Over 35 governments committed $62B in sovereign AI programmes in 2025, creating enterprise B2B demand that hyperscalers cannot serve.</div>
+      <!-- FEEDBACK: source updated -->
       <div class="mc-src">Precedence Research, Apr 2026</div>
     </div>
     <div class="market-card">
       <div class="mc-num">52%</div>
       <div class="mc-label">Telco C-Suite - AI as Top 3 Priority</div>
-      <div class="mc-desc">IDC C-Suite Tech Survey 2025 (45 telecom respondents). Inferencing is the 2026 focal point after network APIs and agentic AI. Telcos have a structural advantage and most have not yet monetised it.</div>
-      <div class="mc-src">IDC Telecom Report, Mar 2026</div>
+      <div class="mc-desc">Inferencing is the 2026 focal point after network APIs and agentic AI. Telcos have a structural advantage and most have not yet monetised it.</div>
+      <!-- FEEDBACK: source updated -->
+      <div class="mc-src">IDC Telco Forum Barcelona, Mar 2026</div>
     </div>
   </div>
 </section>
 
 <section class="section fi" style="padding-top:0;">
   <div class="section-label">Why This Matters for Clients</div>
+  <!-- FEEDBACK: Title stays — but only 2 cards now -->
   <h2>Two Unresolved Problems<br>Every CSP Faces Today</h2>
   <div class="two-col-grid">
     <div class="reason-card">
@@ -277,19 +311,25 @@ footer strong{color:rgba(255,255,255,0.75);}
     <div class="reason-card">
       <div class="rc-num">02</div>
       <div class="rc-title">Sovereign AI and Governance Requirements</div>
-      <div class="rc-body"><strong>Data residency, regulatory compliance, and geopolitical risk</strong> are reshaping enterprise AI procurement. Enterprises in GCC, EU, and regulated markets cannot route sensitive AI workloads through foreign hyperscaler infrastructure.<br><br>Telecom operators are uniquely positioned as <strong>trusted, national infrastructure providers</strong> - operating within regulatory frameworks their enterprise clients already depend on. AI MoDaaS adds a governance layer - TMF915 sovereign compliance, deterministic rule enforcement, cryptographic proof of sovereignty - that hyperscalers structurally cannot provide.</div>
-    </div>
-    <div class="reason-card">
-      <div class="rc-num">03</div>
-      <div class="rc-title">The Window is Now</div>
-      <div class="rc-body"><strong>IDC is explicit:</strong> in 2026, inferencing is the telco opportunity. The 5G investment cycle has peaked. Operators that convert network infrastructure into AI service delivery in the next 24 months will establish durable competitive positions. Those that do not will remain commodity pipe providers while hyperscalers capture the value layer above them.<br><br>AI MoDaaS is Catalyst-validated, TMF-compliant, multi-vendor-validated platform. <strong>The architecture is built. The champions are live. The window is open.</strong></div>
-    </div>
-    <div class="reason-card">
-      <div class="rc-num">04</div>
-      <div class="rc-title">TM Forum Validation at Scale</div>
-      <div class="rc-body">AI MoDaaS is not a proof of concept. It is a <strong>live TMF Catalyst 2026 project</strong> with five champion operators across three regions - EU, GCC, and US. Colt, STC, Telefónica, Türk Telekom, and Verizon have all participated in validated demo sessions confirming the architecture, the sovereign governance model, and the ordering flow.<br><br><strong>Cisco, Etiya, and Ni2 have aligned on the vendor integration architecture</strong> - covering transport, BSS/OSS, and AI inference delivery.</div>
+      <!-- FEEDBACK: "cannot route" → "increasingly restricted" -->
+      <div class="rc-body"><strong>Data residency, regulatory compliance, and geopolitical risk</strong> are reshaping enterprise AI procurement. Enterprises in GCC, EU, and regulated markets are increasingly restricted in how they can route sensitive AI workloads through foreign hyperscaler infrastructure.<br><br>Telecom operators are uniquely positioned as <strong>trusted, national infrastructure providers</strong> - operating within regulatory frameworks their enterprise clients already depend on. AI MoDaaS adds a governance layer - TMF915 sovereign compliance, deterministic rule enforcement, cryptographic proof of sovereignty - that hyperscalers structurally cannot provide.</div>
     </div>
   </div>
+
+  <!-- FEEDBACK: "The Window is Now" as standalone full-width card with subtitle -->
+  <div class="window-card fi">
+    <div class="window-card-inner">
+      <div>
+        <div class="window-subtitle">The 2026 Opportunity</div>
+        <div class="window-title">In 2026,<br>Inferencing is the<br>Telco Opportunity</div>
+      </div>
+      <div class="window-body">
+        <strong>IDC is explicit:</strong> the 5G investment cycle has peaked. Operators that convert network infrastructure into AI service delivery in the next 24 months will establish durable competitive positions. Those that do not will remain commodity pipe providers while hyperscalers capture the value layer above them.<br><br>
+        AI MoDaaS is a Catalyst-validated, TMF-compliant, multi-vendor-aligned platform concept. Colt, STC, Telefónica, Türk Telekom, and Verizon have all participated in validated Catalyst sessions confirming the architecture. <strong>Cisco, Etiya, and Ni2 have aligned on the integration model.</strong>
+      </div>
+    </div>
+  </div>
+  <!-- FEEDBACK: Card 03 (Window is Now) and Card 04 (TM Forum Validation) removed -->
 </section>
 </div>
 
@@ -299,7 +339,23 @@ footer strong{color:rgba(255,255,255,0.75);}
   <div class="prop-inner">
     <div class="prop-label">Section 02 · 10 Minutes · Core Proposition &amp; Value</div>
     <h2 class="prop-h2">What AI MoDaaS<br>Actually Delivers</h2>
-    <p class="prop-intro">Three capabilities combined into one platform - no comparable implementation exists in the TMF ecosystem.</p>
+    <!-- FEEDBACK: Remove "no comparable implementation" claim; add TMF context -->
+    <p class="prop-intro">AI MoDaaS is grounded in TM Forum's MODaaS industry standard and goes further to add sovereign governance, 5G orchestration, and enterprise commercial delivery.</p>
+
+    <!-- FEEDBACK: Replace single claim with TMF standard two-box -->
+    <div class="standard-grid fi">
+      <div class="standard-card tmf">
+        <div class="std-eyebrow">TM Forum GB1085 · Industry Standard</div>
+        <div class="std-title">MODaaS - The Industry Standard</div>
+        <div class="std-body">Defines how CSPs source, govern, and operate AI models internally - a standards-based control plane for moving from isolated AI pilots to production-grade AI operations. The path from AI user to AI TechCo. Adopted by TM Forum as the reference architecture for AI model management in telecom.</div>
+      </div>
+      <div class="standard-card modaas">
+        <div class="std-eyebrow">Cognizant Implementation</div>
+        <div class="std-title">AI MoDaaS - What Our Catalyst Delivers</div>
+        <div class="std-body">Our Catalyst implementation goes <strong>beyond the TM Forum GB1085 MODaaS control plane standard</strong> to add TMF915 sovereign governance, 5G slice orchestration, per-token commercial delivery, and a voice-native ordering interface. AI inference connectivity as an operator-ready enterprise product.</div>
+      </div>
+    </div>
+
     <div class="deliver-grid fi">
       <div class="deliver-card">
         <div class="dc-icon">🎯</div>
@@ -314,7 +370,8 @@ footer strong{color:rgba(255,255,255,0.75);}
       <div class="deliver-card">
         <div class="dc-icon">🛡️</div>
         <div class="dc-title">Agentic Governance - Neuro SAN Architecture</div>
-        <div class="dc-body">Cognizant's open-source Neuro SAN framework replaces ServiceNow entirely - zero third-party licence, TMF-native output, LLM-agnostic, voice-capable. The NAI Governance Agent enforces five deterministic TMF915 sovereignty rules with <strong>cryptographic credential generation and immutable audit trail.</strong> No LLM in the governance decision path.</div>
+        <!-- FEEDBACK: "replaces ServiceNow entirely" → "in the ordering and governance workflow" -->
+        <div class="dc-body">Cognizant's open-source Neuro SAN replaces ServiceNow in the ordering and governance workflow - zero third-party licence, TMF-native output, LLM-agnostic, voice-capable. The NAI Governance Agent enforces five deterministic TMF915 sovereignty rules with <strong>cryptographic credential generation and immutable audit trail.</strong> No LLM in the governance decision path.</div>
       </div>
     </div>
   </div>
@@ -433,7 +490,8 @@ footer strong{color:rgba(255,255,255,0.75);}
   <div class="prop-inner fi">
     <div class="prop-label">Agentic Governance Architecture</div>
     <h2 class="prop-h2">Neuro SAN - Why It Matters</h2>
-    <p class="prop-intro">Cognizant Neuro SAN is an open-source multi-agent AI accelerator. AI MoDaaS is one of the first live multi-vendor Catalyst implementations built on it - replacing ServiceNow with a sovereign-first, standards-native agentic architecture.</p>
+    <!-- FEEDBACK: "replacing ServiceNow with" → "replacing ServiceNow in the ordering and governance workflow" -->
+    <p class="prop-intro">Cognizant Neuro SAN is an open-source multi-agent AI accelerator. AI MoDaaS is one of the first live multi-vendor Catalyst implementations built on it - replacing ServiceNow in the ordering and governance workflow with a sovereign-first, standards-native agentic architecture.</p>
     <div class="arch-grid">
       <div class="arch-card">
         <div class="arch-card-title">Customer Agent</div>
@@ -568,95 +626,127 @@ footer strong{color:rgba(255,255,255,0.75);}
   </div>
 </div>
 
+<!-- GTM: Full replacement of Section 03 from OUR_GTM_STRATEGY.docx -->
 <div id="pathtomarket" style="background:var(--paper);position:relative;z-index:1;">
 <section class="section fi">
-  <div class="section-label">Section 03 · Path to Market</div>
+  <div class="section-label">Section 03 · Go-to-Market Strategy</div>
   <h2>How Cognizant<br>Takes This to Market</h2>
-  <p class="section-intro">
-    MoDaaS has demonstrated the concept and earned Catalyst validation. The next step is converting that into a commercial engagement model built on Cognizant's existing strengths, partnerships, and a strategic network alliance.
-  </p>
- 
-  <div class="two-col-grid" style="margin-bottom:32px;">
-    <div class="reason-card">
-      <div class="rc-num">01</div>
-      <div class="rc-title">Cognizant's Natural Position</div>
-      <div class="rc-body">
-        Cognizant is a system integrator with deep application, platform, and enterprise transformation expertise. MoDaaS is not a network play - it is an <strong>orchestration, governance, and ordering layer</strong>. That is exactly where Cognizant's strengths sit.<br><br>
-        The Catalyst project has demonstrated the platform works across five operator champions in three regions. The next step is translating that validation into a repeatable commercial offering with Cognizant as the integration and intelligence layer above the network.
-      </div>
+  <p class="section-intro">The market is moving in three distinct stages. Cognizant is positioned to lead CSPs through each one; as the AI systems integrator and AI Builder at the convergence of governance, BSS/OSS, and autonomous network orchestration.</p>
+
+  <!-- GTM: Three CSP transformation stages -->
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:48px;">
+    <div style="background:var(--paper2);padding:32px 28px;border-right:1px solid var(--border);">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--faint);margin-bottom:12px;">Stage 01</div>
+      <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:10px;line-height:1.2;">Sovereign Infrastructure Provider</div>
+      <div style="font-size:13px;color:var(--dim);line-height:1.6;">Becoming the trusted national AI grid for governments, regulated industries, and enterprises that cannot route sensitive workloads through foreign hyperscalers.</div>
     </div>
-    <div class="reason-card">
-      <div class="rc-num">02</div>
-      <div class="rc-title">Leverage BSS/OSS Partnerships as Entry Points</div>
-      <div class="rc-body">
-        Cognizant has established relationships with BSS and OSS providers including Etiya and Ni2 who are already participating in this Catalyst. These partnerships are <strong>natural entry points into operator accounts</strong>.<br><br>
-        BSS and OSS transformation programmes already underway at CSPs are the right conversation to extend into AI inference monetisation. Operators investing in modernising their BSS/OSS stack are precisely the buyers who need the ordering and governance layer that MoDaaS provides.
-      </div>
+    <div style="background:var(--paper2);padding:32px 28px;border-right:1px solid var(--border);position:relative;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--teal2));"></div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;">Stage 02</div>
+      <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:10px;line-height:1.2;">AI TechCo</div>
+      <div style="font-size:13px;color:var(--dim);line-height:1.6;">Turning operational AI capability into enterprise-facing managed services. Sovereign AI inference delivered as a billable, governed product - AI MoDaaS is the commercial model for this stage.</div>
     </div>
-  </div>
- 
-  <div class="two-col-grid">
-    <div class="reason-card">
-      <div class="rc-num">03</div>
-      <div class="rc-title">Strategic Network Technology Partnership</div>
-      <div class="rc-body">
-        The one gap in Cognizant's coverage is the <strong>network execution layer</strong>, which includes AI inference routing, 5G network slicing, and the connectivity fabric between enterprise customers and AI models. Filling this requires a strategic alliance with a network technology provider or hyperscaler that brings infrastructure-level AI connectivity capability.<br><br>
-        Cisco is already in the Catalyst. Hyperscalers bring LLM infrastructure at scale. The right partner combination, consisting of Cognizant as the integration and governance layer, a network partner as the connectivity and AI routing layer, creates a complete, differentiated stack that neither party can field alone.
-      </div>
-    </div>
-    <div class="reason-card">
-      <div class="rc-num">04</div>
-      <div class="rc-title">The Go-to-Market Motion</div>
-      <div class="rc-body">
-        <strong>Lead with Catalyst credibility.</strong> Five champions across EU, GCC, and US signal genuine operator interest and not a lab experiment. The market data in this briefing provides the commercial context.<br><br>
-        Target CSPs with active 5G monetisation pressure and BSS/OSS modernisation programmes in flight. The conversation starts with operational efficiency and extends into AI service revenue. <strong>Cognizant positions as the system integrator and governance platform provider</strong> and not the network vendor or the hyperscaler, but the layer that makes the whole stack work as a managed service.
-      </div>
+    <div style="background:var(--paper2);padding:32px 28px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--faint);margin-bottom:12px;">Stage 03</div>
+      <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:10px;line-height:1.2;">Modern Telco</div>
+      <div style="font-size:13px;color:var(--dim);line-height:1.6;">Embedding autonomous AI systems across BSS, OSS, and network to protect the core and structurally improve operating margins.</div>
     </div>
   </div>
- 
-  <div style="margin-top:48px; background:var(--ink); border-radius:4px; overflow:hidden; position:relative;">
-    <div style="background:var(--ink2); padding:20px 28px; border-bottom:1px solid rgba(255,255,255,0.08);">
-      <span style="font-family:'Fraunces',serif; font-size:15px; font-weight:600; color:#fff;">Proposed Partnership Stack</span>
-      <span style="float:right; font-size:11px; color:rgba(255,255,255,0.3); letter-spacing:0.08em; text-transform:uppercase;">Each layer plays to its strength</span>
-    </div>
-    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:rgba(255,255,255,0.06);">
- 
-      <div style="background:var(--ink); padding:32px 28px;">
-        <div style="font-size:11px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--teal2); margin-bottom:14px;">Cognizant</div>
-        <div style="font-family:'Fraunces',serif; font-size:18px; font-weight:600; color:#fff; margin-bottom:12px; line-height:1.3;">Integration &amp; Governance Layer</div>
-        <div style="font-size:13px; color:rgba(255,255,255,0.55); line-height:1.65;">
-          Agentic AI ordering platform, TMF915 sovereign governance, BSS/OSS integration, intent lifecycle management, audit and compliance. Neuro SAN as the orchestration engine.
-        </div>
-      </div>
- 
-      <div style="background:var(--ink); padding:32px 28px; position:relative;">
-        <div style="position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--teal),var(--gold));"></div>
-        <div style="font-size:11px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--white); margin-bottom:14px;">BSS / OSS Partners</div>
-        <div style="font-family:'Fraunces',serif; font-size:18px; font-weight:600; color:#fff; margin-bottom:12px; line-height:1.3;">Order &amp; Operations Layer</div>
-        <div style="font-size:13px; color:rgba(255,255,255,0.55); line-height:1.65;">
-          Billing, order management, network inventory, service fulfilment, and operations support. Existing Cognizant partnerships with leading BSS/OSS providers provide immediate reach into operator accounts.
-        </div>
-      </div>
- 
-      <div style="background:var(--ink); padding:32px 28px;">
-        <div style="font-size:11px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold2); margin-bottom:14px;">Network Technology Partner</div>
-        <div style="font-family:'Fraunces',serif; font-size:18px; font-weight:600; color:#fff; margin-bottom:12px; line-height:1.3;">Connectivity &amp; AI Routing Layer</div>
-        <div style="font-size:13px; color:rgba(255,255,255,0.55); line-height:1.65;">
-          5G network slicing, AI inference routing, LLM connectivity fabric, and sovereign network path management. Strategic alliance required to complete the full stack that could be a network vendor, infrastructure provider, or hyperscaler with AI connectivity capability.
-        </div>
-      </div>
- 
-    </div>
-    <div style="padding:20px 28px; border-top:1px solid rgba(255,255,255,0.06); text-align:center;">
-      <span style="font-size:12px; color:rgba(255,255,255,0.4); letter-spacing:0.06em;">Cognizant owns the intelligence layer · Partners own execution · Together they own the market</span>
+
+  <!-- GTM: Market position statement -->
+  <div style="background:var(--ink);border-radius:4px;padding:36px 40px;margin-bottom:48px;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 90% 50%,rgba(0,109,119,0.2) 0%,transparent 60%);pointer-events:none;"></div>
+    <div style="position:relative;z-index:1;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal2);margin-bottom:12px;">Cognizant Market Position</div>
+      <div style="font-family:'Fraunces',serif;font-size:clamp(18px,2vw,24px);font-weight:600;color:#fff;line-height:1.45;margin-bottom:16px;">The AI Systems Integrator &amp; AI Builder at the convergence of governance, BSS/OSS, and autonomous network orchestration.</div>
+      <div style="font-size:13.5px;color:rgba(255,255,255,0.82);line-height:1.7;max-width:860px;">AI inference traffic is emerging as a new, monetisable network demand class. The commercial motion is not built around selling a product - it is built around bringing three things no single partner in this space has together: <strong style="color:var(--teal2);">IP &amp; Architecture Leadership</strong>, <strong style="color:var(--teal2);">Neuro SAN Agentic Governance Fabric</strong>, and <strong style="color:var(--teal2);">Full-Stack Telco Integration Depth</strong>.</div>
     </div>
   </div>
- 
+
+  <!-- GTM: Three differentiating pillars -->
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-bottom:56px;">
+    <div style="background:#fff;border:1px solid var(--border);border-radius:4px;padding:28px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--teal);"></div>
+      <div style="font-size:28px;margin-bottom:14px;">🏛️</div>
+      <div style="font-family:'Fraunces',serif;font-size:17px;font-weight:700;color:var(--ink);margin-bottom:10px;line-height:1.3;">IP &amp; Architecture Leadership</div>
+      <div style="font-size:13px;color:var(--dim);line-height:1.6;">Defining the blueprint for intent-driven, governed AI connectivity aligned to TM Forum standards and real-world CSP constraints. AI MoDaaS is the reference implementation which is grounded in GB1085 and extended with TMF915 sovereign governance.</div>
+    </div>
+    <div style="background:#fff;border:1px solid var(--border);border-radius:4px;padding:28px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--teal);"></div>
+      <div style="font-size:28px;margin-bottom:14px;">🤖</div>
+      <div style="font-family:'Fraunces',serif;font-size:17px;font-weight:700;color:var(--ink);margin-bottom:10px;line-height:1.3;">Neuro SAN Agentic Governance Fabric</div>
+      <div style="font-size:13px;color:var(--dim);line-height:1.6;">An open, multi-agent control plane that governs AI intent validation, policy enforcement, and sovereign compliance, operating above execution systems without impacting runtime performance. Cognizant's own open-source IP.</div>
+    </div>
+    <div style="background:#fff;border:1px solid var(--border);border-radius:4px;padding:28px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--teal);"></div>
+      <div style="font-size:28px;margin-bottom:14px;">🔗</div>
+      <div style="font-family:'Fraunces',serif;font-size:17px;font-weight:700;color:var(--ink);margin-bottom:10px;line-height:1.3;">Full-Stack Telco Integration Depth</div>
+      <div style="font-size:13px;color:var(--dim);line-height:1.6;">Deep BSS/OSS and network expertise enabling translation from enterprise intent to service orchestration and network execution and commercialising the product. Pre-built connectors and patterns for major vendors, without single-vendor dependency.</div>
+    </div>
+  </div>
+
+  <!-- GTM: Three go-to-market motions -->
+  <div style="font-family:'Fraunces',serif;font-size:clamp(22px,2.5vw,32px);font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.2;">Three Go-to-Market Motions</div>
+  <div style="font-size:15px;color:var(--dim);margin-bottom:32px;line-height:1.6;">Cognizant's role at every stage is the same as the systems integrator and AI Builder bringing architecture, governance, and BSS/OSS &amp; network domain depth to make each transition real.</div>
+
+  <div style="display:flex;flex-direction:column;gap:20px;">
+
+    <div style="background:var(--ink);border-radius:4px;overflow:hidden;">
+      <div style="display:grid;grid-template-columns:280px 1fr;">
+        <div style="background:rgba(0,109,119,0.15);padding:32px 28px;border-right:1px solid rgba(255,255,255,0.08);">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal2);margin-bottom:12px;">GTM Motion 01</div>
+          <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:16px;">Architect the Sovereign AI Delivery Model</div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:6px;">Entry Point</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.75);line-height:1.5;">CSPs with active AI strategy conversations who need a structured, productisable architecture not just another pilot.</div>
+        </div>
+        <div style="padding:32px 36px;">
+          <div style="font-size:13.5px;color:rgba(255,255,255,0.85);line-height:1.7;">Cognizant works with CSPs to design their sovereign AI inference strategy, from intent-driven ordering through governance enforcement to per-token commercial delivery. The AI MoDaaS blueprint, aligned to TM Forum GB1085 and TMF915, is the starting architecture. Every engagement is CSP-specific: existing BSS/OSS stack, regulatory context, and target enterprise segment shape the final design.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--ink);border-radius:4px;overflow:hidden;">
+      <div style="display:grid;grid-template-columns:280px 1fr;">
+        <div style="background:rgba(0,109,119,0.15);padding:32px 28px;border-right:1px solid rgba(255,255,255,0.08);">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal2);margin-bottom:12px;">GTM Motion 02</div>
+          <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:16px;">Build the Autonomous Systems Layer</div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:6px;">Entry Point</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.75);line-height:1.5;">BSS/OSS transformation programmes exploring the opportunity to expand into the AI governance layer.</div>
+        </div>
+        <div style="padding:32px 36px;">
+          <div style="font-size:13.5px;color:rgba(255,255,255,0.85);line-height:1.7;">Cognizant implements the full autonomous stack - Neuro SAN governance agents across BSS order management, OSS digital twin feasibility, network slice orchestration, and LLM routing. BSS/OSS integration depth is decisive here: pre-built connectors and patterns for major vendors, with network and cloud partners brought into the delivery model without creating single-vendor dependency.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--ink);border-radius:4px;overflow:hidden;">
+      <div style="display:grid;grid-template-columns:280px 1fr;">
+        <div style="background:rgba(0,109,119,0.15);padding:32px 28px;border-right:1px solid rgba(255,255,255,0.08);">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal2);margin-bottom:12px;">GTM Motion 03</div>
+          <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:16px;">Operate &amp; Govern at Production Scale</div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:6px;">Entry Point</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.75);line-height:1.5;">CSPs moving from AI pilots to production-grade agent deployments who need an operational governance model.</div>
+        </div>
+        <div style="padding:32px 36px;">
+          <div style="font-size:13.5px;color:rgba(255,255,255,0.85);line-height:1.7;">Autonomous systems require a new operational model - agent lifecycle management, governance audit assurance, token economy monitoring, and self-healing network oversight. Cognizant's managed services capability and Secure AI Services provide ongoing sovereignty assurance, compliance reporting, and agent performance governance - creating a recurring managed engagement beyond the build.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- GTM: Closing position statement -->
+  <div style="margin-top:40px;padding:28px 36px;background:var(--paper2);border:1px solid var(--border);border-radius:4px;border-left:4px solid var(--teal);">
+    <div style="font-size:14px;color:var(--dim);line-height:1.7;">Cognizant uniquely combines <strong style="color:var(--teal);">architectural authorship</strong>, <strong style="color:var(--teal);">open agentic governance (Neuro SAN)</strong>, and <strong style="color:var(--teal);">end-to-end telco integration depth</strong> - delivering a TM Forum-aligned control plane that enables CSPs to monetise sovereign AI at scale.</div>
+  </div>
+
 </section>
+</div>
+
+<div class="section-divider"></div>
 
 <div class="champion-strip fi">
   <div class="champion-inner" style="flex-direction: column; align-items: flex-start; gap: 24px;">
-    
     <div style="display: flex; align-items: center; gap: 32px; flex-wrap: wrap;">
       <div class="champ-label">Catalyst Champions</div>
       <div class="champ-logos">
@@ -667,7 +757,6 @@ footer strong{color:rgba(255,255,255,0.75);}
         <div class="champ-logo">Verizon</div>
       </div>
     </div>
-
     <div style="display: flex; align-items: center; gap: 32px; flex-wrap: wrap;">
       <div class="champ-label">Partners</div>
       <div class="champ-logos">
@@ -676,9 +765,9 @@ footer strong{color:rgba(255,255,255,0.75);}
         <div class="champ-logo partner">Ni2</div>
       </div>
     </div>
-
   </div>
 </div>
+
 <div class="closing-section fi">
   <div class="closing-quote">Telecom operators are no longer managing pipes.<br><em>They are governing intent.</em></div>
   <div class="closing-line"></div>
@@ -687,10 +776,9 @@ footer strong{color:rgba(255,255,255,0.75);}
 
 <footer>
   <p>
-    <strong>AI MoDaaS - AI Model-as-a-Service · TMF Catalyst 2026 · C26.0.952</strong><br>
-    <strong>Builder: Cognizant Technology Solutions · Architect: Rajarshi Pathak, ISG CMT Practice</strong><br>
+    <strong>AI MoDaaS - AI Model-as-a-Service</strong><br>
     Champions: Colt · STC · Telefónica · Türk Telekom · Verizon · Partners: Cisco · Etiya · Ni2<br><br>
-    <strong>Neuro SAN · Azure OpenAI · Angular · GraphDB · TMF921 v1.1.0 · TMF915</strong>
+    <strong>Neuro SAN · Azure OpenAI · Angular · GraphDB · TMF921 · TMF915</strong>
   </p>
 </footer>
 
